@@ -1,6 +1,9 @@
 package com.example.wol
 
+import android.content.ComponentName
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -76,6 +79,28 @@ class MainActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Informations supprimées.", Toast.LENGTH_SHORT).show()
         }
+
+        val button: Button = findViewById(R.id.accederMonPC)
+        button.setOnClickListener {
+            val packageName = "com.google.chromeremotedesktop"
+            val activityName = "com.google.remoting.androidwrapper.MainActivity"
+
+            try {
+                val intent = Intent(Intent.ACTION_MAIN).apply {
+                    component = ComponentName(packageName, activityName)
+                    addCategory(Intent.CATEGORY_LAUNCHER) // Assure que c'est un lanceur
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                }
+                startActivity(intent)
+            } catch (e: Exception) {
+                // Si l'application ou l'activité ne sont pas trouvées, redirige vers le Play Store
+                val playStoreIntent = Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
+                }
+                startActivity(playStoreIntent)
+            }
+        }
+
     }
 
     private fun sendWakeOnLanPacket(macAddress: String, broadcastIP: String, port: Int) {
