@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etMacAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Adresse MAC"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etBroadcastIP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Adresse IP de diffusion"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etPort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Port"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnWakePC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Réveiller l'ordinateur" />
+
+    <Button
+        android:id="@+id/btnUpdateInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modifier les infos" />
+
+    <Button
+        android:id="@+id/btnDeleteInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Supprimer les infos" />
+
+</LinearLayout>
+
